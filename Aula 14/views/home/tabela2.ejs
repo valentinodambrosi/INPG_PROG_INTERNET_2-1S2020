@@ -25,6 +25,7 @@
             <th scope="col">#</th>
             <th scope="col">Modelo</th>
             <th scope="col">Placa</th>
+            <th scope="col">Comandos</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
             <td> <%=  carro.id %> </td>
             <td> <%=  carro.modelo %> </td>
             <td> <%=  carro.placa %> </td>
+            <td> <a href='/apagarCarro/<%=  carro.id %>'> Apagar </a>   </td>
    
         </tr>
             
@@ -48,6 +50,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Placa</th>
+                <th scope="col">Comandos</th>
               </tr>
 
         </tfoot>

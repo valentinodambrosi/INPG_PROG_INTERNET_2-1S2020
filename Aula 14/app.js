@@ -23,13 +23,13 @@ app.get('/', (req, res) => {
 app.post('/carro/', (req, res) => {
 
     Carro.create({
-        modelo:req.body.modelo,
-        placa:req.body.placa
-    }).then(function(){
+        modelo: req.body.modelo,
+        placa: req.body.placa
+    }).then(function () {
 
-            console.log("Cadastro OK !!!!")
+        console.log("Cadastro OK !!!!")
 
-    }).catch(function(erro){
+    }).catch(function (erro) {
 
         console.log("Cadastro KO !!!!")
 
@@ -39,12 +39,12 @@ app.post('/carro/', (req, res) => {
 
 
 
-   // var linhaVirtual = [req.body.id, req.body.modelo, req.body.placa];
-   // tabelaVirtual.push(linhaVirtual);
+    // var linhaVirtual = [req.body.id, req.body.modelo, req.body.placa];
+    // tabelaVirtual.push(linhaVirtual);
 
 
 
-// CarroDao.inserir(dados);
+    // CarroDao.inserir(dados);
 
     //res.render('./home/tabela', { tabelaVirtualView: tabelaVirtual });
 
@@ -56,17 +56,34 @@ app.post('/carro/', (req, res) => {
 app.get('/listarcarro', (req, res) => {
 
 
-    Carro.findAll().then(function(carros){
+    Carro.findAll().then(function (carros) {
 
         //res.send(carros)
-        res.render('./home/tabela2',  {carros:carros});
+        res.render('./home/tabela2', { carros: carros });
 
     })
 
-   
+
 
 })
 
+
+
+app.get('/apagarCarro/:id', (req, res) => {
+
+    Carro.destroy({ where: { id: req.params.id } }).then(function () {
+
+        res.send("Deletado");
+
+    }).catch(function (erro) {
+
+        res.send("erro deletando" + erro);
+
+
+    })
+
+
+})
 
 
 app.listen(3000, function () {
